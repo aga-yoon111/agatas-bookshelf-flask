@@ -1,0 +1,46 @@
+{%extends "layout.html"%}
+
+{%block title%}{{book.title}} - Agata's Bookshelf{%endblock%}
+
+{%block content%}
+
+
+    <div class="book-details-container">
+
+        <div class="back-link">
+            <a href="{{ url_for('index') }}">&larr; Back to List</a>
+        </div>
+
+        <div class="book-details-body">
+            <div class="book-poster">
+                <img src="{{book.image_url}}" alt="Poster for {{book.title}}">
+            </div>
+
+            <div class="book-details-info">
+                <h1 class="book-title">{{book.title}}</h1>
+
+                <div class="book-section">
+                    <p><strong>Readed on:</strong> {{book.readed_date}}</p>
+                </div>
+
+                <div class="book-section rating-details">
+                    <p><strong>Rating:</strong></p>
+                    <div class="rating">
+                        {%for i in range(5)%}{%if i+1 <= book.stars|int%}
+                        <span>★</span>
+                        {%else%}
+                        <span class = "star-empty">★</span>
+                        {%endif%}{%endfor%}
+                        
+                    </div>
+                </div>
+
+                <div class="book-section">
+                    <p class="review-title"><strong>Review:</strong></p>
+                    <p>{{book.review}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

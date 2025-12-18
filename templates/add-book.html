@@ -1,0 +1,52 @@
+{%extends "layout.html"%}
+
+{%block title %}Add New Book Review - Agata's Bookshelf{%endblock%}
+
+{%block content%}
+
+<div class="form-page-container">
+
+    <h2>New Review</h2>
+    <div class="form-container">
+        <form action = "{{url_for('add_book')}}", method = "POST">
+            <div class="form-group">
+                <label for="title">Book Name</label>
+                <input type="text" id="title" name ="title" placeholder="Enter the book title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cover_url">Cover URL</label>
+                <input type="url" id="cover_url" name="image_url" placeholder="https://example.com/poster.jpg" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="rating">Stars</label>
+                    <select id="rating" name="rating" required>
+                        <option value="" disable selected>Choose a rating</option>
+                        <option value="1">★☆☆☆☆ - 1 Star</option>
+                        <option value="2">★★☆☆☆ - 2 Stars</option>
+                        <option value="3">★★★☆☆ - 3 Stars</option>
+                        <option value="4">★★★★☆ - 4 Stars</option>
+                        <option value="5">★★★★★ - 5 Stars</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="readed_date">Readed Date</label>
+                    <input type="date" id="readed_date" name="readed_date" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="review">My Review</label>
+                <textarea id="review" name = "review" rows="5" placeholder="Write your thoughts here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Add</button>
+
+        </form>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{%block title%}Agata's Bookshelf - Home{%endblock%}</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <a href="{{ url_for('index') }}" class="logo-link">
+                <div>
+                    <img src="{{ url_for('static', filename= 'assets/images/abs-icon.png')}}" alt="ABs Logo Icon" height="40">
+                    <span>ABs</span>
+                </div>
+            </a>
+
+            <nav>
+                <a href="{{url_for('show_add_form')}}">
+                    <button class="add-button" aria-label="Add new book review">+</button>
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            {%block content%}
+            {%endblock%}
+        </main>
+
+        <footer>
+            <p>&copy; 2025 ABs &ndash; Agata's Bookshelf</p>
+        </footer>
+    </body>
+
+</html>
